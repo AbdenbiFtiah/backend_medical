@@ -44,9 +44,12 @@ public class Patient extends User{
 
 	public Patient(String nom, String prenom, String adresse, String identification, String typeId, String pays,
 			String sexe, String email, int tel, String login, String password, Date datenaissance) {
+			//Mutuel mutuel
+			
 		super(nom, prenom, adresse, identification, typeId, pays, sexe, email, tel, login, password);
 		// TODO Auto-generated constructor stub
 		this.date_naissance=datenaissance;
+		//this.mutuel=mutuel;
 	}
 	
 

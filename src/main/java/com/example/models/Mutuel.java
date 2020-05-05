@@ -1,27 +1,30 @@
 package com.example.models;
 
+import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+
+
 @Entity
-public class Mutuel {
-	@Id @GeneratedValue
-	private int id;
+public class Mutuel implements Serializable{
+	@Id
+	@Column(unique=true,columnDefinition="VARCHAR(64)")
+	private String id;
 	private String nom;
 	
 	@OneToMany(mappedBy="mutuel")
 	private Collection<Patient> patients;
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -41,10 +44,10 @@ public class Mutuel {
 		this.patients = patients;
 	}
 
-	public Mutuel(String nom, Collection<Patient> patients) {
+	public Mutuel(String id, String nom) {
 		super();
+		this.id=id;
 		this.nom = nom;
-		this.patients = patients;
 	}
 
 	public Mutuel() {

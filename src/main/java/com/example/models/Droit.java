@@ -5,26 +5,18 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Role {
+public class Droit {
 
 	@Id @GeneratedValue
 	private int id;
-	private String name;
-	private String description;
-	
-	@ManyToMany(mappedBy="roles")
-	private Collection<User> users;
-	
-	@OneToOne
-	private Droit droit;
-	@OneToOne
-	private Ressource ressource;
-	
+	private String nom,description;
+
+	@OneToOne(mappedBy="droit")
+	private Role role;
 	
 	public int getId() {
 		return id;
@@ -32,11 +24,11 @@ public class Role {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getNom() {
+		return nom;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 	public String getDescription() {
 		return description;
@@ -44,14 +36,15 @@ public class Role {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Role(String name, String description) {
+	public Droit(String nom, String description) {
 		super();
-		this.name = name;
+		this.nom = nom;
 		this.description = description;
 	}
-	public Role() {
+	public Droit() {
 		super();
 	}
+	
 	
 	
 }
