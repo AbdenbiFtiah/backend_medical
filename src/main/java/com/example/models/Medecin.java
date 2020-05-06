@@ -9,7 +9,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Medecin extends User {
+public class Medecin extends Utilisateur {
 	
 	@ManyToOne
 	private Specialite specialite;

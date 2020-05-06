@@ -13,7 +13,7 @@ import javax.persistence.ManyToMany;
 
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-public class User {
+public class Utilisateur {
 	@Id @GeneratedValue
 	private int id;
 	private String nom;
@@ -29,7 +29,7 @@ public class User {
 	private String password;
 	
 	@ManyToMany
-	@JoinTable( name = "Users_Roles")
+	@JoinTable( name = "Utilisateurs_Roles")
 	private Collection<Role> roles;
 	
 	
@@ -164,12 +164,12 @@ public class User {
 		this.roles = roles;
 	}
 
-public User() {
+public Utilisateur() {
 		super();
 	}
 
 
-public User(String nom, String prenom, String adresse, String identification, String typeId, String pays, String sexe,
+public Utilisateur(String nom, String prenom, String adresse, String identification, String typeId, String pays, String sexe,
 		String email, int tel, String login, String password) {
 	super();
 	this.nom = nom;

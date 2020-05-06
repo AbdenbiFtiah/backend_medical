@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Patient extends User{
+public class Patient extends Utilisateur{
 	
 	
 	private Date date_naissance;
