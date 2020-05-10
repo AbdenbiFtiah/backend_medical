@@ -15,6 +15,8 @@ import com.example.models.Prestation;
 public class BackendMedicalApplication implements CommandLineRunner{
 	 @Autowired
 	private PrestationRepository prestationRepository;
+	 
+	
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackendMedicalApplication.class, args);

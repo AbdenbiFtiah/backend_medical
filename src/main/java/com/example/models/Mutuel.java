@@ -5,26 +5,30 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
 @Entity
 public class Mutuel implements Serializable{
-	@Id
-	@Column(unique=true,columnDefinition="VARCHAR(64)")
-	private String id;
+	@Id 
+	private int id;
 	private String nom;
 	
 	@OneToMany(mappedBy="mutuel")
+	@JsonIgnore
 	private Collection<Patient> patients;
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -44,7 +48,7 @@ public class Mutuel implements Serializable{
 		this.patients = patients;
 	}
 
-	public Mutuel(String id, String nom) {
+	public Mutuel(int id, String nom) {
 		super();
 		this.id=id;
 		this.nom = nom;

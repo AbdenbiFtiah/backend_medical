@@ -1,5 +1,6 @@
 package com.example.models;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
 
@@ -11,7 +12,7 @@ import javax.persistence.OneToMany;
 public class Patient extends Utilisateur{
 	
 	
-	private Date date_naissance;
+	private LocalDate date_naissance;
 	
 	@ManyToOne
 	private Mutuel mutuel;
@@ -20,11 +21,11 @@ public class Patient extends Utilisateur{
 	private Collection<RendezVous> rendezVous;
 	
 
-	public Date getDate_naissance() {
+	public LocalDate getDate_naissance() {
 		return date_naissance;
 	}
 
-	public void setDateNaissance(Date dateNaissance) {
+	public void setDateNaissance(LocalDate dateNaissance) {
 		this.date_naissance = dateNaissance;
 	}
 
@@ -43,13 +44,9 @@ public class Patient extends Utilisateur{
 	}
 
 	public Patient(String nom, String prenom, String adresse, String identification, String typeId, String pays,
-			String sexe, String email, int tel, String login, String password, Date datenaissance) {
-			//Mutuel mutuel
-			
+			String sexe, String email, int tel, String login, String password, LocalDate datenaissance) {			
 		super(nom, prenom, adresse, identification, typeId, pays, sexe, email, tel, login, password);
-		// TODO Auto-generated constructor stub
 		this.date_naissance=datenaissance;
-		//this.mutuel=mutuel;
 	}
 	
 
