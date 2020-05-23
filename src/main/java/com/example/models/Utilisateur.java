@@ -2,9 +2,9 @@ package com.example.models;
 
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -12,11 +12,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class Utilisateur {
 	@Id
 	@GeneratedValue
+	@Column(name="ID")
 	private int id;
 	private String nom;
 	private String prenom;
@@ -30,8 +32,10 @@ public class Utilisateur {
 	private String login;
 	private String password;
 	
-	@ManyToMany
-	@JoinTable( name = "Utilisateurs_Roles")
+	@ManyToMany()
+	@JoinTable( name = "Utilisateurs_Roles",
+	            joinColumns=@JoinColumn(name="ID"),
+	            inverseJoinColumns=@JoinColumn(name="ID_ROLE"))
 	private Collection<Role> roles;
 	
 	

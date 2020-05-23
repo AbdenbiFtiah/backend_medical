@@ -2,6 +2,7 @@ package com.example.models;
 
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,13 +13,12 @@ import javax.persistence.OneToOne;
 @Entity
 public class Role {
 
-	@Id @GeneratedValue
+	@Id @GeneratedValue 	@Column(name="ID_ROLE")
 	private int id;
 	private String name;
 	private String description;
 	
-	@ManyToMany(mappedBy="roles")
-	private Collection<Utilisateur> utilisateurs;
+	
 	
 	@OneToOne
 	private Droit droit;
